@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EFCore.NamingConventions" Version="8.0.0-rc.2" />
+    <PackageReference Include="MassTransit" Version="8.1.2" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="8.1.2" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared\Shared.Grpc\Shared.Grpc.csproj" />
+    <ProjectReference Include="..\..\shared\Shared.Infrastruct\Shared.Infrastruct.csproj" />
+    <ProjectReference Include="..\..\shared\Shared.Persistence\Shared.Persistence.csproj" />
+    <ProjectReference Include="..\..\shared\Shared.Rest.Common\Shared.Rest.Common.csproj" />
+  </ItemGroup>
+
+</Project>

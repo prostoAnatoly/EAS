@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>Smf.Web.Ui</Name>
+    <RootNamespace>Smf.Web.Ui</RootNamespace>
+    <FileUpgradeFlags>40</FileUpgradeFlags>
+    <UpgradeBackupLocation>C:\MY DOCUMENTS\Проекты\EAS\Backup\ui\eas-web\</UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>a3fbe74a-8f53-478a-a038-bcfdcec8411b</ProjectGuid>
+    <ProjectHome>
+    </ProjectHome>
+    <StartupFile>server.js</StartupFile>
+    <StartWebBrowser>True</StartWebBrowser>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <NodejsPort>1488</NodejsPort>
+    <EnableTypeScript>true</EnableTypeScript>
+    <StartWebBrowser>true</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include=".env" />
+    <Content Include=".env.preproduction" />
+    <Content Include=".env.production" />
+    <Content Include="libman.json" />
+    <Content Include="src\entry.html" />
+    <Content Include="src\intermediary\indexIntermediary.ts" />
+    <Content Include="src\intermediary\Mediator.ts" />
+    <Content Include="src\kit\hrs\ColorHr.tsx" />
+    <Content Include="src\messageBroker\IConsumer.ts" />
+    <Content Include="src\messageBroker\IBusEvent.ts" />
+    <Content Include="src\messageBroker\MemoryServiceBus.ts" />
+    <Content Include="src\modules\employees\application\features\GetEmployeesQuery.ts" />
+    <Content Include="src\modules\employees\application\infrastructure\clients\EmployeesClient\arguments\GetEmployeesArgs.ts" />
+    <Content Include="src\modules\employees\stores\models\EmployeeModel.ts" />
+    <Content Include="src\sharedModels\Guid.ts" />
+    <Content Include="src\modules\organizations\pages\OrganizationsList\OrganizationsList.form.tsx" />
+    <Content Include="src\modules\register\application\infrastructure\clients\IdentityClient\IAuthBaseInfoDto.ts" />
+    <Content Include="src\public\assets\images\layout\sky.JPG" />
+    <Content Include="src\styles\site.css">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="src\utils\caches\LocalCache.ts" />
+    <Content Include="webpack.config.js" />
+    <None Include="server.js" />
+    <Content Include="tsconfig.json" />
+    <Content Include="package.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\" />
+    <Folder Include="src\intermediary\behaviors\" />
+    <Folder Include="src\kit\backdrops\" />
+    <Folder Include="src\kit\formParts\" />
+    <Folder Include="src\modules\dashboard\" />
+    <Folder Include="src\modules\dashboard\config\" />
+    <Folder Include="src\modules\dashboard\pages\" />
+    <Folder Include="src\modules\employees\api\consumers\" />
+    <Folder Include="src\modules\employees\application\" />
+    <Folder Include="src\modules\employees\application\features\" />
+    <Folder Include="src\modules\employees\application\infrastructure\" />
+    <Folder Include="src\modules\employees\application\infrastructure\clients\" />
+    <Folder Include="src\modules\employees\application\infrastructure\clients\EmployeesClient\" />
+    <Folder Include="src\modules\employees\application\infrastructure\clients\EmployeesClient\arguments\" />
+    <Folder Include="src\modules\employees\application\infrastructure\clients\EmployeesClient\Dtos\" />
+    <Folder Include="src\modules\employees\application\infrastructure\clients\EmployeesClient\responses\" />
+    <Folder Include="src\modules\employees\config\" />
+    <Folder Include="src\modules\employees\contracts\events\" />
+    <Folder Include="src\modules\employees\domain\" />
+    <Folder Include="src\modules\employees\domain\Employees\" />
+    <Folder Include="src\modules\employees\infrastructure\" />
+    <Folder Include="src\modules\employees\infrastructure\clients\" />
+    <Folder Include="src\modules\employees\api\" />
+    <Folder Include="src\modules\employees\contracts\" />
+    <Folder Include="src\modules\employees\pages\CreateEmployee\" />
+    <Folder Include="src\modules\employees\pages\EditEmployee\" />
+    <Folder Include="src\modules\employees\stores\" />
+    <Folder Include="src\modules\employees\pages\" />
+    <Folder Include="src\modules\employees\pages\EmployeesList\" />
+    <Folder Include="src\modules\employees\stores\models\" />
+    <Folder Include="src\modules\organizations\" />
+    <Folder Include="src\modules\organizations\api\consumers\" />
+    <Folder Include="src\modules\organizations\application\" />
+    <Folder Include="src\modules\organizations\application\features\" />
+    <Folder Include="src\modules\organizations\application\infrastructure\" />
+    <Folder Include="src\modules\organizations\application\infrastructure\clients\" />
+    <Folder Include="src\modules\organizations\application\infrastructure\clients\OrganizationsClient\" />
+    <Folder Include="src\modules\organizations\application\infrastructure\clients\OrganizationsClient\arguments\" />
+    <Folder Include="src\modules\organizations\application\infrastructure\clients\OrganizationsClient\Dtos\" />
+    <Folder Include="src\modules\organizations\application\infrastructure\clients\OrganizationsClient\responses\" />
+    <Folder Include="src\modules\organizations\config\" />
+    <Folder Include="src\modules\organizations\contracts\events\" />
+    <Folder Include="src\modules\organizations\domain\" />
+    <Folder Include="src\modules\organizations\infrastructure\" />
+    <Folder Include="src\modules\organizations\infrastructure\clients\" />
+    <Folder Include="src\modules\organizations\api\" />
+    <Folder Include="src\modules\organizations\contracts\" />
+    <Folder Include="src\modules\organizations\pages\" />
+    <Folder Include="src\modules\organizations\pages\CreateOrganization\" />
+    <Folder Include="src\modules\organizations\pages\OrganizationsList\" />
+    <Folder Include="src\modules\organizations\stores\" />
+    <Folder Include="src\modules\register\api\consumers\" />
+    <Folder Include="src\modules\register\config\" />
+    <Folder Include="src\modules\register\contracts\" />
+    <Folder Include="src\modules\register\contracts\events\" />
+    <Folder Include="src\modules\register\api\" />
+    <Folder Include="src\modules\register\stores\" />
+    <Folder Include="src\modules\shell\api\consumers\" />
+    <Folder Include="src\modules\shell\config\" />
+    <Folder Include="src\modules\shell\api\" />
+    <Folder Include="src\modules\shell\stores\" />
+    <Folder Include="src\modules\shell\pages\brand\" />
+    <Folder Include="src\modules\shell\pages\menu\" />
+    <Folder Include="src\modules\shell\pages\Forbidden\" />
+    <Folder Include="src\modules\shell\pages\Layout\" />
+    <Folder Include="src\modules\dashboard\pages\Main\" />
+    <Folder Include="src\modules\shell\pages\NoConnectionToServer\" />
+    <Folder Include="src\modules\shell\pages\NotFound\" />
+    <Folder Include="src\config\" />
+    <Folder Include="src\forms\extensions\" />
+    <Folder Include="src\forms\" />
+    <Folder Include="src\forms\controls\" />
+    <Folder Include="src\forms\validations\" />
+    <Folder Include="src\kit\" />
+    <Folder Include="src\kit\buttons\" />
+    <Folder Include="src\kit\dialogs\" />
+    <Folder Include="src\kit\menu\" />
+    <Folder Include="src\kit\hrs\" />
+    <Folder Include="src\kit\tables\" />
+    <Folder Include="src\kit\pageParts\" />
+    <Folder Include="src\kit\snackBars\" />
+    <Folder Include="src\kit\progresses\" />
+    <Folder Include="src\factories\" />
+    <Folder Include="src\modules\" />
+    <Folder Include="src\modules\employees\" />
+    <Folder Include="src\modules\shell\" />
+    <Folder Include="src\modules\register\" />
+    <Folder Include="src\modules\register\application\features\CheckInvitationCode\" />
+    <Folder Include="src\modules\register\application\infrastructure\" />
+    <Folder Include="src\modules\register\application\infrastructure\clients\" />
+    <Folder Include="src\modules\register\application\features\" />
+    <Folder Include="src\modules\register\application\infrastructure\clients\IdentityClient\" />
+    <Folder Include="src\modules\register\application\infrastructure\clients\InvitationsClient\" />
+    <Folder Include="src\modules\register\application\infrastructure\clients\UsersClient\" />
+    <Folder Include="src\modules\register\application\infrastructure\services\" />
+    <Folder Include="src\modules\register\infrastructure\" />
+    <Folder Include="src\modules\register\infrastructure\clients\" />
+    <Folder Include="src\modules\register\application\" />
+    <Folder Include="src\modules\register\domain\" />
+    <Folder Include="src\modules\register\pages\" />
+    <Folder Include="src\intermediary\" />
+    <Folder Include="src\modules\register\pages\Agreement\" />
+    <Folder Include="src\modules\register\pages\Join\" />
+    <Folder Include="src\modules\register\pages\Login\" />
+    <Folder Include="src\modules\register\pages\Registration\" />
+    <Folder Include="src\modules\register\pages\UserRegistration\" />
+    <Folder Include="src\modules\shell\application\" />
+    <Folder Include="src\modules\shell\application\features\" />
+    <Folder Include="src\modules\shell\application\infrastructure\" />
+    <Folder Include="src\modules\shell\application\infrastructure\clients\" />
+    <Folder Include="src\modules\shell\infrastructure\" />
+    <Folder Include="src\modules\shell\infrastructure\clients\" />
+    <Folder Include="src\modules\shell\pages\" />
+    <Folder Include="src\messageBroker\" />
+    <Folder Include="src\sharedModels\" />
+    <Folder Include="src\public\" />
+    <Folder Include="src\public\assets\" />
+    <Folder Include="src\public\assets\images\" />
+    <Folder Include="src\public\assets\images\favicons\" />
+    <Folder Include="src\public\assets\images\layout\" />
+    <Folder Include="src\sharedModels\exTableView\" />
+    <Folder Include="src\styles\" />
+    <Folder Include="src\utils\" />
+    <Folder Include="src\utils\caches\" />
+    <Folder Include="src\utils\web\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="src\App.tsx" />
+    <TypeScriptCompile Include="src\config\routingBase.ts" />
+    <TypeScriptCompile Include="src\intermediary\IPipelineBehavior.ts" />
+    <TypeScriptCompile Include="src\intermediary\IQuery.ts" />
+    <TypeScriptCompile Include="src\intermediary\ISender.ts" />
+    <TypeScriptCompile Include="src\kit\backdrops\BackdropLoading.tsx" />
+    <TypeScriptCompile Include="src\kit\buttons\ButtonCancel.tsx" />
+    <TypeScriptCompile Include="src\kit\buttons\ButtonRefresh.tsx" />
+    <TypeScriptCompile Include="src\kit\formParts\FormOnPaper.tsx" />
+    <TypeScriptCompile Include="src\kit\formParts\FormButtonPanel.tsx" />
+    <TypeScriptCompile Include="src\kit\formParts\Form.tsx" />
+    <TypeScriptCompile Include="src\kit\formParts\FormSimpleHeader.tsx" />
+    <TypeScriptCompile Include="src\kit\formParts\FormContent.tsx" />
+    <TypeScriptCompile Include="src\kit\formParts\FormErrorMessage.tsx" />
+    <TypeScriptCompile Include="src\kit\formParts\FormRow.tsx" />
+    <TypeScriptCompile Include="src\messageBroker\IServiceBus.ts" />
+    <TypeScriptCompile Include="src\messageBroker\MessageBrokerConfig.ts" />
+    <TypeScriptCompile Include="src\modules\employees\api\consumers\SelectedOrganizationChangedConsumer.ts" />
+    <TypeScriptCompile Include="src\modules\employees\application\features\GetEmployeeQuery.ts" />
+    <TypeScriptCompile Include="src\modules\employees\application\features\UpdateEmployeeCommand.ts" />
+    <TypeScriptCompile Include="src\modules\employees\application\features\CreateEmployeeCommand.ts" />
+    <TypeScriptCompile Include="src\modules\employees\application\infrastructure\clients\EmployeesClient\arguments\UpdateEmployeeArgs.ts" />
+    <TypeScriptCompile Include="src\modules\employees\application\infrastructure\clients\EmployeesClient\arguments\CreateEmployeeArgs.ts" />
+    <TypeScriptCompile Include="src\modules\employees\application\infrastructure\clients\EmployeesClient\IEmployeesClient.ts" />
+    <TypeScriptCompile Include="src\modules\employees\application\infrastructure\clients\EmployeesClient\Dtos\IEmployeeDto.ts" />
+    <TypeScriptCompile Include="src\modules\employees\application\infrastructure\clients\EmployeesClient\Dtos\IFullNameDto.ts" />
+    <TypeScriptCompile Include="src\modules\employees\application\infrastructure\clients\EmployeesClient\responses\IGetEmployeeResponse.ts" />
+    <TypeScriptCompile Include="src\modules\employees\application\infrastructure\clients\EmployeesClient\responses\IUpdateEmployeeResponse.ts" />
+    <TypeScriptCompile Include="src\modules\employees\application\infrastructure\clients\EmployeesClient\responses\ICreateEmployeeResponse.ts" />
+    <TypeScriptCompile Include="src\modules\employees\application\infrastructure\clients\EmployeesClient\responses\IGetEmployeesResponse.ts" />
+    <TypeScriptCompile Include="src\modules\employees\config\menuByEmployees.ts" />
+    <TypeScriptCompile Include="src\modules\employees\domain\Employees\Employee.ts" />
+    <TypeScriptCompile Include="src\modules\employees\domain\Employees\EmployeeState.ts" />
+    <TypeScriptCompile Include="src\modules\employees\domain\indexDomain.ts" />
+    <TypeScriptCompile Include="src\modules\employees\infrastructure\clients\EmployeesClient.ts" />
+    <TypeScriptCompile Include="src\modules\employees\pages\CreateEmployee\CreateEmployee.form.tsx" />
+    <TypeScriptCompile Include="src\modules\employees\pages\CreateEmployee\CreateEmployee.page.tsx" />
+    <TypeScriptCompile Include="src\modules\employees\pages\EditEmployee\EditEmployee.form.tsx" />
+    <TypeScriptCompile Include="src\modules\employees\pages\EditEmployee\EditEmployee.page.tsx" />
+    <TypeScriptCompile Include="src\modules\employees\stores\EmployeesStore.ts" />
+    <TypeScriptCompile Include="src\modules\organizations\application\infrastructure\clients\OrganizationsClient\arguments\CreateOrganizationArgs.ts" />
+    <TypeScriptCompile Include="src\modules\organizations\application\infrastructure\clients\OrganizationsClient\responses\ICreateOrganizationResponse.ts" />
+    <TypeScriptCompile Include="src\modules\organizations\config\menuByOrganizations.ts" />
+    <TypeScriptCompile Include="src\modules\organizations\pages\CreateOrganization\CreateOrganization.form.tsx" />
+    <TypeScriptCompile Include="src\modules\organizations\pages\CreateOrganization\CreateOrganization.page.tsx" />
+    <TypeScriptCompile Include="src\modules\organizations\stores\OrganizationsStore.ts" />
+    <TypeScriptCompile Include="src\modules\register\api\configApi.ts" />
+    <TypeScriptCompile Include="src\modules\register\CurrentProfileUserCache.ts" />
+    <TypeScriptCompile Include="src\modules\register\domain\indexDomain.ts" />
+    <TypeScriptCompile Include="src\modules\register\domain\ProfileUser.ts" />
+    <TypeScriptCompile Include="src\modules\shell\pages\Layout\OrganizationInfoView.tsx" />
+    <TypeScriptCompile Include="src\modules\shell\pages\NoConnectionToServer\NoConnectionToServer.form.tsx" />
+    <TypeScriptCompile Include="src\modules\shell\pages\NoConnectionToServer\NoConnectionToServer.page.tsx" />
+    <TypeScriptCompile Include="src\modules\shell\stores\ShellStore.ts" />
+    <TypeScriptCompile Include="src\sharedModels\ApiDate.ts" />
+    <TypeScriptCompile Include="src\sharedModels\exTableView\AnyObjectItemsSearch.ts" />
+    <TypeScriptCompile Include="src\sharedModels\FullName.ts" />
+    <TypeScriptCompile Include="src\modules\dashboard\config\routingByDashboard.ts" />
+    <TypeScriptCompile Include="src\modules\dashboard\pages\dashboardPages.ts" />
+    <TypeScriptCompile Include="src\modules\employees\api\configApi.ts" />
+    <TypeScriptCompile Include="src\modules\employees\config\routingByEmployees.ts" />
+    <TypeScriptCompile Include="src\modules\employees\pages\EmployeesList\EmployeesList.form.tsx" />
+    <TypeScriptCompile Include="src\modules\employees\pages\EmployeesList\EmployeesList.page.tsx" />
+    <TypeScriptCompile Include="src\modules\employees\pages\employeesPages.ts" />
+    <TypeScriptCompile Include="src\modules\employees\EmployeesServiceCollection.ts" />
+    <TypeScriptCompile Include="src\modules\organizations\api\configApi.ts" />
+    <TypeScriptCompile Include="src\modules\organizations\api\consumers\RegisterLoginedConsumer.ts" />
+    <TypeScriptCompile Include="src\modules\organizations\application\features\GetOrganizationsQuery.ts" />
+    <TypeScriptCompile Include="src\modules\organizations\application\features\CreateOrganizationCommand.ts" />
+    <TypeScriptCompile Include="src\modules\organizations\application\infrastructure\clients\OrganizationsClient\IOrganizationsClient.ts" />
+    <TypeScriptCompile Include="src\modules\organizations\application\infrastructure\clients\OrganizationsClient\responses\IGetOrganizationsResponse.ts" />
+    <TypeScriptCompile Include="src\modules\organizations\application\infrastructure\clients\OrganizationsClient\Dtos\IOrganizationDto.ts" />
+    <TypeScriptCompile Include="src\modules\organizations\config\routingByOrganizations.ts" />
+    <TypeScriptCompile Include="src\modules\organizations\contracts\events\SelectedOrganizationChangedIntegrationEvent.ts" />
+    <TypeScriptCompile Include="src\modules\organizations\contracts\integrationEvents.ts" />
+    <TypeScriptCompile Include="src\modules\organizations\domain\OrganizationCard.ts" />
+    <TypeScriptCompile Include="src\modules\organizations\domain\Organization.ts" />
+    <TypeScriptCompile Include="src\modules\organizations\domain\indexDomain.ts" />
+    <TypeScriptCompile Include="src\modules\organizations\infrastructure\clients\OrganizationsClient.ts" />
+    <TypeScriptCompile Include="src\modules\organizations\OrganizationsServiceCollection.ts" />
+    <TypeScriptCompile Include="src\modules\organizations\pages\OrganizationsList\OrganizationsList.page.tsx" />
+    <TypeScriptCompile Include="src\modules\organizations\pages\organizationsPages.ts" />
+    <TypeScriptCompile Include="src\modules\register\config\routingByRegister.ts" />
+    <TypeScriptCompile Include="src\modules\register\contracts\integrationEvents.ts" />
+    <TypeScriptCompile Include="src\modules\register\contracts\events\AlreadyRegisteredIntegrationEvent.ts" />
+    <TypeScriptCompile Include="src\modules\register\contracts\events\ErrorRegisterIntegrationEvent.ts" />
+    <TypeScriptCompile Include="src\modules\register\contracts\events\UserRegisteredIntegrationEvent.ts" />
+    <TypeScriptCompile Include="src\modules\register\contracts\events\RegisterLoginedIntegrationEvent.ts" />
+    <TypeScriptCompile Include="src\modules\register\stores\CurrentProfileUserStore.ts" />
+    <TypeScriptCompile Include="src\modules\shell\api\configApi.ts" />
+    <TypeScriptCompile Include="src\modules\shell\api\consumers\ErrorRegisterEventConsumer.ts" />
+    <TypeScriptCompile Include="src\modules\shell\api\consumers\AlreadyRegisteredConsumer.ts" />
+    <TypeScriptCompile Include="src\modules\shell\api\consumers\SelectedOrganizationChangedConsumer.ts" />
+    <TypeScriptCompile Include="src\modules\shell\config\routingByShell.ts" />
+    <TypeScriptCompile Include="src\modules\shell\pages\brand\Brand.tsx" />
+    <TypeScriptCompile Include="src\modules\shell\pages\Forbidden\Forbidden.form.tsx" />
+    <TypeScriptCompile Include="src\modules\shell\pages\Forbidden\Forbidden.page.tsx" />
+    <TypeScriptCompile Include="src\modules\shell\pages\Layout\Layout.tsx" />
+    <TypeScriptCompile Include="src\modules\shell\pages\menu\MainMenu.tsx" />
+    <TypeScriptCompile Include="src\modules\dashboard\pages\Main\Main.page.tsx" />
+    <TypeScriptCompile Include="src\modules\shell\pages\NotFound\NotFound.form.tsx" />
+    <TypeScriptCompile Include="src\modules\shell\pages\NotFound\NotFound.page.tsx" />
+    <TypeScriptCompile Include="src\config\api.ts" />
+    <TypeScriptCompile Include="src\sharedModels\indexSharedModels.ts" />
+    <TypeScriptCompile Include="src\sharedModels\exTableView\Pagination.ts" />
+    <TypeScriptCompile Include="src\utils\caches\CacheBase.ts" />
+    <TypeScriptCompile Include="src\utils\queryPath.ts" />
+    <TypeScriptCompile Include="src\entry.tsx" />
+    <TypeScriptCompile Include="src\forms\extensions\RefObjectExtensions.ts" />
+    <TypeScriptCompile Include="src\factories\HttpClientFactory.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\forms\controls\Control.tsx" />
+    <TypeScriptCompile Include="src\forms\controls\DateControl.tsx" />
+    <TypeScriptCompile Include="src\forms\controls\InputControl.tsx" />
+    <TypeScriptCompile Include="src\forms\controls\MaskControl.tsx" />
+    <TypeScriptCompile Include="src\forms\controls\NumberControl.tsx" />
+    <TypeScriptCompile Include="src\forms\controls\PasswordControl.tsx" />
+    <TypeScriptCompile Include="src\forms\controls\PhoneNumberControl.tsx" />
+    <TypeScriptCompile Include="src\forms\controls\RadioButtonsControl.tsx" />
+    <TypeScriptCompile Include="src\forms\FormDef.ts" />
+    <TypeScriptCompile Include="src\forms\Forms.ts" />
+    <TypeScriptCompile Include="src\forms\ItemInfo.ts" />
+    <TypeScriptCompile Include="src\forms\validations\EmailValidation.ts" />
+    <TypeScriptCompile Include="src\forms\validations\EmptyValidation.ts" />
+    <TypeScriptCompile Include="src\forms\validations\IsRequiredValidation.ts" />
+    <TypeScriptCompile Include="src\forms\validations\MaxDateValidation.ts" />
+    <TypeScriptCompile Include="src\forms\validations\MaxLengthValidation.ts" />
+    <TypeScriptCompile Include="src\forms\validations\MaxValueValidation.ts" />
+    <TypeScriptCompile Include="src\forms\validations\MinDateValidation.ts" />
+    <TypeScriptCompile Include="src\forms\validations\MinLengthValidation.ts" />
+    <TypeScriptCompile Include="src\forms\validations\MinValueValidation.ts" />
+    <TypeScriptCompile Include="src\forms\validations\PhoneNumberValidation.ts" />
+    <TypeScriptCompile Include="src\forms\validations\Validation.ts" />
+    <TypeScriptCompile Include="src\intermediary\ICommand.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\kit\buttons\ButtonAdd.tsx" />
+    <TypeScriptCompile Include="src\kit\buttons\ButtonBack.tsx" />
+    <TypeScriptCompile Include="src\kit\buttons\ButtonDelete.tsx" />
+    <TypeScriptCompile Include="src\kit\buttons\ButtonSave.tsx" />
+    <TypeScriptCompile Include="src\kit\dialogs\AlertDialog.tsx" />
+    <TypeScriptCompile Include="src\kit\dialogs\FormDialog.tsx" />
+    <TypeScriptCompile Include="src\kit\kit.ts" />
+    <TypeScriptCompile Include="src\kit\pageParts\PageHeader.tsx" />
+    <TypeScriptCompile Include="src\kit\pageParts\PageContent.tsx" />
+    <TypeScriptCompile Include="src\kit\progresses\LoadingProgress.tsx" />
+    <TypeScriptCompile Include="src\kit\snackBars\SnackBarError.tsx" />
+    <TypeScriptCompile Include="src\kit\tables\ExTable.tsx" />
+    <TypeScriptCompile Include="src\kit\menu\MenuItemDef.ts" />
+    <TypeScriptCompile Include="src\modules\register\application\features\CheckInvitationCode\CheckInvitationCodeCommand.ts" />
+    <TypeScriptCompile Include="src\modules\register\application\features\CheckInvitationCode\InvitationCheckResult.ts" />
+    <TypeScriptCompile Include="src\modules\shell\application\features\LogoutCommand.ts" />
+    <TypeScriptCompile Include="src\modules\register\application\features\RegistrationUserByCodeCommand.ts" />
+    <TypeScriptCompile Include="src\modules\register\application\features\LoginCommand.ts" />
+    <TypeScriptCompile Include="src\modules\register\application\features\RegistrationUserCommand.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\modules\register\application\infrastructure\clients\IdentityClient\IIdentityClient.ts" />
+    <TypeScriptCompile Include="src\modules\register\application\infrastructure\clients\InvitationsClient\IInvitationCheckDto.ts" />
+    <TypeScriptCompile Include="src\modules\register\application\infrastructure\clients\InvitationsClient\IInvitationsClient.ts" />
+    <TypeScriptCompile Include="src\modules\register\application\infrastructure\clients\IRegistrationClient.ts" />
+    <TypeScriptCompile Include="src\modules\register\application\infrastructure\clients\UsersClient\IFullNameDto.ts" />
+    <TypeScriptCompile Include="src\modules\register\application\infrastructure\clients\UsersClient\IUserProfileDto.ts" />
+    <TypeScriptCompile Include="src\modules\register\application\infrastructure\clients\UsersClient\IUsersClient.ts" />
+    <TypeScriptCompile Include="src\modules\register\application\infrastructure\services\TokenService.ts" />
+    <TypeScriptCompile Include="src\modules\shell\application\infrastructure\clients\IIdentityClient.ts" />
+    <TypeScriptCompile Include="src\modules\shell\infrastructure\clients\IdentityClient.ts" />
+    <TypeScriptCompile Include="src\modules\shell\pages\shellPages.ts" />
+    <TypeScriptCompile Include="src\modules\shell\ShellServiceCollection.ts" />
+    <TypeScriptCompile Include="src\modules\register\domain\User.ts" />
+    <TypeScriptCompile Include="src\modules\register\infrastructure\clients\IdentityClient.ts" />
+    <TypeScriptCompile Include="src\modules\register\infrastructure\clients\InvitationsClient.ts" />
+    <TypeScriptCompile Include="src\modules\register\infrastructure\clients\RegistrationClient.ts" />
+    <TypeScriptCompile Include="src\modules\register\infrastructure\clients\UsersClient.ts" />
+    <TypeScriptCompile Include="src\modules\register\pages\Agreement\AgreementUser.form.tsx" />
+    <TypeScriptCompile Include="src\modules\register\pages\Agreement\AgreementUser.page.tsx" />
+    <TypeScriptCompile Include="src\modules\register\pages\Join\Join.form.tsx" />
+    <TypeScriptCompile Include="src\modules\register\pages\Join\Join.page.tsx" />
+    <TypeScriptCompile Include="src\modules\register\pages\Login\Login.form.tsx" />
+    <TypeScriptCompile Include="src\modules\register\pages\Login\Login.page.tsx" />
+    <TypeScriptCompile Include="src\modules\register\pages\registerPages.ts" />
+    <TypeScriptCompile Include="src\modules\register\pages\Registration\Registration.page.tsx" />
+    <TypeScriptCompile Include="src\modules\register\pages\Registration\Registration.form.tsx" />
+    <TypeScriptCompile Include="src\modules\register\pages\UserRegistration\UserRegistration.form.tsx" />
+    <TypeScriptCompile Include="src\modules\register\pages\UserRegistration\UserRegistration.page.tsx" />
+    <TypeScriptCompile Include="src\modules\register\RegisterServiceCollection.ts" />
+    <TypeScriptCompile Include="src\utils\date-utils.ts" />
+    <TypeScriptCompile Include="src\utils\fullname-utils.ts" />
+    <TypeScriptCompile Include="src\utils\hooks.ts" />
+    <TypeScriptCompile Include="src\utils\phone-utils.ts" />
+    <TypeScriptCompile Include="src\utils\string-utils.ts" />
+    <TypeScriptCompile Include="src\utils\Token.ts" />
+    <TypeScriptCompile Include="src\utils\mui-utils.ts" />
+    <TypeScriptCompile Include="src\utils\web\HttpClient.ts" />
+    <TypeScriptCompile Include="src\utils\web\HttpRequestError.ts" />
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1448</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v17.0\WebApplications\Microsoft.WebApplication.targets" />
+</Project>

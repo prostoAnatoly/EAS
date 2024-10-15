@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\seedWork\SeedWork.Infrastructure\SeedWork.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\..\..\shared\Shared.Infrastruct\Shared.Infrastruct.csproj" />
+    <ProjectReference Include="..\..\..\..\shared\Shared.Persistence\Shared.Persistence.csproj" />
+    <ProjectReference Include="..\Identity.App\Identity.App.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.3.0" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,49 @@
+:root {
+    --EAS-FONT-SIZE-BASE: 12px;
+    --EAS-FONT-SIZE-HEADER: calc(var(--EAS-FONT-SIZE-BASE) + 1vw);
+    --EAS-FONT-SIZE-SMALL-TEXT: calc(8px + 0.2vw) !important;
+    --EAS-FONT-SIZE-MD-TEXT: calc(var(--EAS-FONT-SIZE-BASE) + 0.2vw) !important;
+    --EAS-BACKGROUND-COLOR-SELECTED: lightseagreen;
+    --EAS-BACKGROUND-COLOR-MAIN: #b2ebf2;
+    --EAS-BACKGROUND-COLOR-PAPER-INNER: snow;
+    --EAS-FONT-SIZE-LG-TEXT: calc(14px + 0.3vw) !important;
+    --EAS-FONT-SIZE-BUTTON-TEXT: calc(var(--EAS-FONT-SIZE-BASE) + 0.2vw);
+}
+
+html {
+    background-color: var(--EAS-BACKGROUND-COLOR-MAIN);
+}
+
+body {
+    margin: 0;
+}
+
+.justify {
+    text-align: justify,
+}
+
+.row-center {
+    width: 100%;
+    text-align: center;
+}
+
+.form-row {
+    width: 100%;
+    display: flex;
+}
+
+.menu-item-root:hover {
+    background-color: var(--EAS-BACKGROUND-COLOR-SELECTED) !important;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 40%), 0 0 20px rgb(0 0 0 / 15%) inset;
+    -webkit-box-shadow: 0 2px 8px rgb(0 0 0 / 40%), 0 0 20px rgb(0 0 0 / 15%) inset;
+    -moz-box-shadow: 0 2px 8px rgb(0 0 0 / 40%), 0 0 20px rgb(0 0 0 / 15%) inset;
+}
+
+.menu-item-selected {
+    background-color: var(--EAS-BACKGROUND-COLOR-SELECTED) !important;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 40%), 0 0 20px rgb(0 0 0 / 15%) inset;
+    -webkit-box-shadow: 0 2px 8px rgb(0 0 0 / 40%), 0 0 20px rgb(0 0 0 / 15%) inset;
+    -moz-box-shadow: 0 2px 8px rgb(0 0 0 / 40%), 0 0 20px rgb(0 0 0 / 15%) inset;
+}
+
+/*# sourceMappingURL=main.css.map*/

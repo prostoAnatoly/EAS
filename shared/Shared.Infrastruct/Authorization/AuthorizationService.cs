@@ -1,0 +1,60 @@
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Net.Http.Headers;
+using Shared.App.Authorization;
+using Shared.Grpc.Context;
+using System.IdentityModel.Tokens.Jwt;
+using System.Net.Http.Headers;
+
+namespace Shared.Infrastruct.Authorization;
+
+class AuthorizationService
+{
+    private readonly IServiceProvider _serviceProvider;
+    private readonly IAuthorizationContextCreator _authorizationContextCreator;
+
+    private IAuthorizationContext? _authorizationContext;
+
+    public AuthorizationService(IServiceProvider serviceProvider, IAuthorizationContextCreator authorizationContextCreator)
+    {
+        _serviceProvider = serviceProvider;
+        _authorizationContextCreator = authorizationContextCreator;
+    }
+
+    public IAuthorizationContext? GetAuthorizationContext()
+    {
+        if (_authorizationContext == null)
+        {
+            var token = GetToken();
+            if (token != null)
+            {
+                _authorizationContext = _authorizationContextCreator.Create(token);
+            }
+        }
+
+        return _authorizationContext;
+    }
+
+    private HttpContext? GetHttpContext()
+    {
+        return _serviceProvider.GetService<IHttpContextAccessor>()?.HttpContext // HTTP 1.0 API
+                              ?? _serviceProvider.GetService<GrpcContext>()?.HttpContext; // HTTP 2.0 GRPC
+    }
+
+    private JwtSecurityToken? GetToken()
+    {
+        var httpContext = GetHttpContext();
+        if (httpContext == null) { return null; }
+
+        if (httpContext.Request.Headers.TryGetValue(HeaderNames.Authorization, out var authHeader) &&
+            AuthenticationHeaderValue.TryParse(authHeader, out var headerInfo) &&
+            headerInfo.Scheme == JwtBearerDefaults.AuthenticationScheme &&
+            !string.IsNullOrEmpty(headerInfo.Parameter))
+        {
+            return new JwtSecurityTokenHandler().ReadJwtToken(headerInfo.Parameter);
+        }
+
+        return null;
+    }
+}
