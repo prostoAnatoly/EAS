@@ -5,7 +5,6 @@ using Employees.Infrastructure;
 using Shared.Automapper;
 using Shared.Grpc.CodeFirstClient;
 using Shared.Infrastructure.HealthChecks;
-using Shared.Persistence;
 using System.Reflection;
 using System.Text;
 

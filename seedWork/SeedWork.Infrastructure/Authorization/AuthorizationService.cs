@@ -1,24 +1,24 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Net.Http.Headers;
-using Shared.App.Authorization;
+using SeedWork.Application.Authorization;
 using Shared.Grpc.Context;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net.Http.Headers;
 
-namespace Shared.Infrastruct.Authorization;
+namespace SeedWork.Infrastructure.Authorization;
 
-class AuthorizationService
+sealed class AuthorizationService : IAuthorizationService
 {
-    private readonly IServiceProvider _serviceProvider;
+    private readonly HttpContext? _httpContext;
     private readonly IAuthorizationContextCreator _authorizationContextCreator;
 
     private IAuthorizationContext? _authorizationContext;
 
-    public AuthorizationService(IServiceProvider serviceProvider, IAuthorizationContextCreator authorizationContextCreator)
+    protected AuthorizationService(IHttpContextAccessor? httpContextAccessor, GrpcContext? grpcContext,
+        IAuthorizationContextCreator authorizationContextCreator)
     {
-        _serviceProvider = serviceProvider;
+        _httpContext = httpContextAccessor?.HttpContext ?? grpcContext?.HttpContext;
         _authorizationContextCreator = authorizationContextCreator;
     }
 
@@ -36,18 +36,11 @@ class AuthorizationService
         return _authorizationContext;
     }
 
-    private HttpContext? GetHttpContext()
-    {
-        return _serviceProvider.GetService<IHttpContextAccessor>()?.HttpContext // HTTP 1.0 API
-                              ?? _serviceProvider.GetService<GrpcContext>()?.HttpContext; // HTTP 2.0 GRPC
-    }
-
     private JwtSecurityToken? GetToken()
     {
-        var httpContext = GetHttpContext();
-        if (httpContext == null) { return null; }
+        if (_httpContext == null) { return null; }
 
-        if (httpContext.Request.Headers.TryGetValue(HeaderNames.Authorization, out var authHeader) &&
+        if (_httpContext.Request.Headers.TryGetValue(HeaderNames.Authorization, out var authHeader) &&
             AuthenticationHeaderValue.TryParse(authHeader, out var headerInfo) &&
             headerInfo.Scheme == JwtBearerDefaults.AuthenticationScheme &&
             !string.IsNullOrEmpty(headerInfo.Parameter))

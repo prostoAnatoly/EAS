@@ -18,6 +18,7 @@
     <ProjectReference Include="..\..\shared\Shared.Infrastruct\Shared.Infrastruct.csproj" />
     <ProjectReference Include="..\..\shared\Shared.Persistence\Shared.Persistence.csproj" />
     <ProjectReference Include="..\..\shared\Shared.Rest.Common\Shared.Rest.Common.csproj" />
+    <ProjectReference Include="..\SeedWork.Application\SeedWork.Application.csproj" />
   </ItemGroup>
 
 </Project>

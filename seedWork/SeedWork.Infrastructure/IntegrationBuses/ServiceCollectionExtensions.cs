@@ -18,7 +18,7 @@ public static class ServiceCollectionExtensions
             .GetRequiredService<IOptions<IntegrationBusOptions>>()
             .Value;
 
-        if (options.Enabled == false)
+        if (!options.Enabled)
         {
             services.AddScoped<IIntegrationBus, IntegrationBusStub>();
             
@@ -58,7 +58,7 @@ public static class ServiceCollectionExtensions
         }
     }
 
-    static IRetryConfigurator SetInterval(IRetryConfigurator configurator, int retryCount, int initialIntervalMs,
+    static void SetInterval(IRetryConfigurator configurator, int retryCount, int initialIntervalMs,
         int intervalIncrememtMs)
     {
         if (retryCount <= 0)
@@ -70,7 +70,5 @@ public static class ServiceCollectionExtensions
             configurator.Incremental(retryCount, TimeSpan.FromMilliseconds(initialIntervalMs),
                 TimeSpan.FromMilliseconds(intervalIncrememtMs));
         }
-
-        return configurator;
     }
 }

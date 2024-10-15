@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Shared.App;
+using Shared.Infrastruct.Authorization;
 using Shared.Infrastructure.Behaviors.DomainEvents;
 using Shared.Infrastructure.Behaviors.IntegrationEvents;
 using Shared.Infrastructure.Behaviors.Logging;
@@ -18,16 +19,24 @@ public static class BehaviorsExtensions
             .AddLoggingBehavior()
             .AddValidationBehavior()
             .AddIntegrationEventsDispatchingBehavior()
+            .AddAuthorizationBehavior()
             .AddUnitOfWorkBehavior()
             .AddDomainEventsDispatchingBehavior()
             .AddErrorHandler();
 
         return services;
     }
-
+  
     public static IServiceCollection AddLoggingBehavior(this IServiceCollection services)
     {
         services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
+
+        return services;
+    }
+
+    public static IServiceCollection AddAuthorizationBehavior(this IServiceCollection services)
+    {
+        services.AddScoped(typeof(IPipelineBehavior<,>), typeof(IAuthorizationBehavior<,>));
 
         return services;
     }

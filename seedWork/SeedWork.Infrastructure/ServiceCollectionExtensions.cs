@@ -1,6 +1,8 @@
 using Microsoft.Extensions.DependencyInjection;
+using SeedWork.Infrastructure.Authorization;
 using SeedWork.Infrastructure.Helpers;
 using Shared.Grpc;
+using Shared.Infrastruct.Authorization;
 using Shared.Rest.Common;
 
 namespace SeedWork.Infrastructure;
@@ -15,7 +17,8 @@ public static class ServiceCollectionExtensions
     {
         services
             .AddSingleton<IGrpcStatusCodeDefiner, GrpcStatusCodeDefiner>()
-            .AddSingleton<IHttpStatusCodeDefiner, HttpStatusCodeDefiner>();
+            .AddSingleton<IHttpStatusCodeDefiner, HttpStatusCodeDefiner>()
+            .AddAuthorizationService();
 
         return services;
     }
@@ -23,6 +26,15 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddMediatorHelper(this IServiceCollection services)
     {
         services.AddTransient<MediatorHelper>();
+
+        return services;
+    }
+
+    private static IServiceCollection AddAuthorizationService(this IServiceCollection services)
+    {
+        services.AddHttpContextAccessor();
+        services.AddSingleton<IAuthorizationContextCreator, AuthorizationContextCreator>();
+        services.AddScoped<IAuthorizationService, AuthorizationService>();
 
         return services;
     }

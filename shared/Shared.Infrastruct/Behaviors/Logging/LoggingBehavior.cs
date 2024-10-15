@@ -11,7 +11,6 @@ public class LoggingBehavior<TIn, TOut> : IPipelineBehavior<TIn, TOut> where TIn
 {
     private const string OPERATION_TYPE_NAME = "OperationType";
     private const string OPERATION_ID_NAME = "OperationId";
-    private const string OPERATION_LEAD_TIME = "OperationLeadTime";
 
     private readonly ILogger<LoggingBehavior<TIn, TOut>> logger;
 
@@ -28,7 +27,7 @@ public class LoggingBehavior<TIn, TOut> : IPipelineBehavior<TIn, TOut> where TIn
         using (LogContext.PushProperty(OPERATION_ID_NAME, operationId))
         using (LogContext.PushProperty(OPERATION_TYPE_NAME, operationType))
         {
-            logger.LogInformation($"Начата операция {{{OPERATION_TYPE_NAME}}} с ИД {{{OPERATION_ID_NAME}}}",
+            logger.LogInformation("Начата операция {OPERATION_TYPE_NAME} с ИД {OPERATION_ID_NAME}",
                 operationType, operationId);
 
             TOut result;
@@ -46,8 +45,8 @@ public class LoggingBehavior<TIn, TOut> : IPipelineBehavior<TIn, TOut> where TIn
             finally
             {
                 sw.Stop();
-                logger.LogInformation($"Завершена операция {{{OPERATION_TYPE_NAME}}} с ИД {{{OPERATION_ID_NAME}}}." +
-                    $" Исполнена за {{{OPERATION_LEAD_TIME}}}",
+                logger.LogInformation("Завершена операция {OPERATION_TYPE_NAME} с ИД {OPERATION_ID_NAME}." +
+                    " Исполнена за {OPERATION_LEAD_TIME}",
                     operationType, operationId, sw.Elapsed);
             }
 

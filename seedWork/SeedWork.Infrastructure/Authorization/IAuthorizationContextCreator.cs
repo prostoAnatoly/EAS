@@ -1,7 +1,7 @@
-﻿using Shared.App.Authorization;
+﻿using SeedWork.Application.Authorization;
 using System.IdentityModel.Tokens.Jwt;
 
-namespace Shared.Infrastruct.Authorization;
+namespace SeedWork.Infrastructure.Authorization;
 
 public interface IAuthorizationContextCreator
 {

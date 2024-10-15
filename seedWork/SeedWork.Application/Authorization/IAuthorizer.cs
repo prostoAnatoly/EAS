@@ -1,4 +1,4 @@
-﻿namespace Shared.App.Authorization;
+﻿namespace SeedWork.Application.Authorization;
 
 /// <summary>
 /// Сервис выполняющий авторизацию.
