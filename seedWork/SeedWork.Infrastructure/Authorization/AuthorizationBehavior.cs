@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using SeedWork.Application.Authorization;
-using Shared.Infrastruct.Authorization;
+using Shared.Infrastruct.Behaviors.Authorization.Generic;
 
 namespace SeedWork.Infrastructure.Authorization;
 
@@ -19,11 +19,8 @@ sealed class AuthorizationBehavior<TIn, TOut> : IAuthorizationBehavior<TIn, TOut
     {
         if (_authorizer != null)
         {
-            var authorizationContext = _authorizationService.GetAuthorizationContext();
-            if (authorizationContext == null)
-            {
-                throw new UnauthorizedAccessException("Запрос не авторизован");
-            }
+            var authorizationContext = _authorizationService.GetAuthorizationContext()
+                ?? throw new UnauthorizedAccessException("Запрос не авторизован");
 
             await _authorizer.Authorize(request, authorizationContext, cancellationToken);
         }

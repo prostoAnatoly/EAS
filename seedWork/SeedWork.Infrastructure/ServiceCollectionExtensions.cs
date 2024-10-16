@@ -1,8 +1,9 @@
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using SeedWork.Infrastructure.Authorization;
 using SeedWork.Infrastructure.Helpers;
 using Shared.Grpc;
-using Shared.Infrastruct.Authorization;
+using Shared.Infrastructure.Behaviors;
 using Shared.Rest.Common;
 
 namespace SeedWork.Infrastructure;
@@ -16,6 +17,7 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddInfrastructureCore(this IServiceCollection services)
     {
         services
+            .AddStandardPipelineBehaviors()
             .AddSingleton<IGrpcStatusCodeDefiner, GrpcStatusCodeDefiner>()
             .AddSingleton<IHttpStatusCodeDefiner, HttpStatusCodeDefiner>()
             .AddAuthorizationService();
@@ -26,6 +28,27 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddMediatorHelper(this IServiceCollection services)
     {
         services.AddTransient<MediatorHelper>();
+
+        return services;
+    }
+
+    private static IServiceCollection AddStandardPipelineBehaviors(this IServiceCollection services)
+    {
+        services
+            .AddLoggingBehavior()
+            .AddValidationBehavior()
+            .AddIntegrationEventsDispatchingBehavior()
+            .AddAuthorizationBehavior()
+            .AddUnitOfWorkBehavior()
+            .AddDomainEventsDispatchingBehavior()
+            .AddErrorHandler();
+
+        return services;
+    }
+
+    private static IServiceCollection AddAuthorizationBehavior(this IServiceCollection services)
+    {
+        services.AddScoped(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehavior<,>));
 
         return services;
     }

@@ -5,5 +5,5 @@ namespace SeedWork.Infrastructure.Authorization;
 public interface IAuthorizationService
 {
 
-    IAuthorizationContext GetAuthorizationContext();
+    IAuthorizationContext? GetAuthorizationContext();
 }

@@ -1,8 +1,6 @@
-﻿using MediatR;
+﻿namespace Shared.Infrastruct.Authorization;
 
-namespace Shared.Infrastruct.Authorization;
-
-public interface IAuthorizationBehavior<TIn, TOut> : IPipelineBehavior<TIn, TOut> where TIn : IRequest<TOut>
+public interface IAuthorizationBehavior
 {
 
 }

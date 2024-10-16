@@ -19,7 +19,6 @@ public static class BehaviorsExtensions
             .AddLoggingBehavior()
             .AddValidationBehavior()
             .AddIntegrationEventsDispatchingBehavior()
-            .AddAuthorizationBehavior()
             .AddUnitOfWorkBehavior()
             .AddDomainEventsDispatchingBehavior()
             .AddErrorHandler();
@@ -30,13 +29,6 @@ public static class BehaviorsExtensions
     public static IServiceCollection AddLoggingBehavior(this IServiceCollection services)
     {
         services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
-
-        return services;
-    }
-
-    public static IServiceCollection AddAuthorizationBehavior(this IServiceCollection services)
-    {
-        services.AddScoped(typeof(IPipelineBehavior<,>), typeof(IAuthorizationBehavior<,>));
 
         return services;
     }

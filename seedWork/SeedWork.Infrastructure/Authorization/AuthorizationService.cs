@@ -15,7 +15,7 @@ sealed class AuthorizationService : IAuthorizationService
 
     private IAuthorizationContext? _authorizationContext;
 
-    protected AuthorizationService(IHttpContextAccessor? httpContextAccessor, GrpcContext? grpcContext,
+    public AuthorizationService(IHttpContextAccessor? httpContextAccessor, GrpcContext? grpcContext,
         IAuthorizationContextCreator authorizationContextCreator)
     {
         _httpContext = httpContextAccessor?.HttpContext ?? grpcContext?.HttpContext;

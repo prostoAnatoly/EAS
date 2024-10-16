@@ -6,6 +6,8 @@
 /// <typeparam name="TRequest">Тип команды/запроса.</typeparam>
 public interface IAuthorizer<in TRequest>
 {
+    IAuthorizationContext AuthorizationContext { get; }
+
     /// <summary>
     /// Проверка полномочий на выполнение команды/запроса.
     /// </summary>

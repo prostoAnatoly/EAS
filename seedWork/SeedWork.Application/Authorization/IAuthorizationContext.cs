@@ -2,4 +2,6 @@
 
 public interface IAuthorizationContext
 {
+
+    Guid UserId { get; }
 }
